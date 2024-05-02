@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        /*body {
+            padding: 0;
+            margin: 0;
+            background: #eee;
+        }
+
+        @page {
+            size: 210mm 297mm;
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            width: 100%;
+            height: ;
+        } */
+
+        .container {
+            display: flex;
+            justify-content: center;
+            width: 21cm;
+            max-height: 29.7cm;
+            padding: 0;
+            margin: 0;
+            background: white;
+        }
+
+        .left-page,
+        .right-page {
+            padding: 0;
+            height: 297mm;
+            outline: 0;
+        }
+
+        .left-page {
+            background-color: #323B4C;
+            width: 31%;
+        }
+
+        .right-page {
+            background-color: #fff;
+            width: 69%;
+        }
+
+        .content-left-page,
+        .content-right-page {
+            padding: 2px;
+            padding-top: 10px;
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        @media print {
+            .container {
+                margin: 0;
+                width: initial;
+                max-height: initial;
+                background: initial;
+                page-break-after: avoid;
+            }
+        }
+
+        .container-profil {
+            width: 100%;
+            height: 120px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .profil {
+            width: 120px;
+            height: 120px;
+        }
+
+        .profil img {
+            width: 100%;
+            height: 100%;
+        }
+
+        /*Start div user info*/
+        .container-left-page-info {
+            padding-top: 25px;
+        }
+
+        .container-user-info-left-page div {
+            padding-left: 10px;
+            color: white;
+        }
+
+        .container-user-info-left-page div hr {
+            background-color: #edebeb;
+            border: 1px solid #edebeb;
+            width: 265px;
+            margin-top: 2px;
+        }
+
+        .container-user-info-left-page .phone,
+        .container-user-info-left-page .mail,
+        .container-user-info-left-page .address {
+            margin-top: 5px;
+        }
+
+        /*End div user info*/
+
+        /*Start div education*/
+
+        .container-education-left-page {
+            padding-top: 25px;
+        }
+
+        .container-education-left-page div {
+            padding-left: 10px;
+            color: white;
+        }
+
+        .container-education-left-page div hr {
+            background-color: #edebeb;
+            border: 1px solid #edebeb;
+            width: 265px;
+            margin-top: 2px;
+        }
+
+        .education-part {
+            padding-top: 7px;
+        }
+
+        .education-part .child-education-part {
+            padding-top: 5px;
+        }
+
+        .education-part-inner {
+            margin-bottom: 13px;
+        }
+
+        /*End div education*/
+
+        /*Start div language*/
+        .container-lang-left-page {
+            padding-top: 15px;
+        }
+
+        .container-lang-left-page div {
+            padding-left: 10px;
+            color: white;
+        }
+
+        .container-lang-left-page div hr {
+            background-color: #edebeb;
+            border: 1px solid #edebeb;
+            width: 265px;
+            margin-top: 2px;
+        }
+
+        .lang-part {
+            padding-top: 7px;
+        }
+
+        .lang-part p {
+            padding-top: 5px;
+        }
+
+        /*End div language*/
+
+        /* main div (right container)*/
+        .content-right-page {
+            padding: 10px;
+        }
+
+        .fullname {
+            text-align: center;
+        }
+
+        .presentation {
+            padding-top: 10px;
+            text-align: justify;
+        }
+
+        .experience {
+            padding-top: 25px;
+        }
+
+        .experience-title {
+            text-align: start;
+        }
+
+        hr {
+            background-color: #edebeb;
+            border: 1px solid #edebeb;
+        }
+
+        .content-experience-part-title {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .content-experience-part-title .small {
+            width: 25%;
+            background-color: #cfcdcd;
+            padding: 2px;
+            margin-right: 3px;
+            text-align: center;
+            padding-top: 5px;
+        }
+
+        .experience-part {
+            margin-top: 10px;
+        }
+
+        .content-experience-part-title .experience-part-title {
+            width: 75%;
+            color: #737373;
+            margin-top: 15px;
+        }
+
+
+        .skill {
+            padding-top: 25px;
+        }
+
+        .skill-title {
+            text-align: start;
+        }
+
+        /* .skill-title hr{
+            width: 90%;
+            margin-left: 5%;
+        } */
+
+        .skill-part {
+            margin-top: 10px;
+        }
+
+        .skill-part ul {
+            padding-top: 5px;
+            padding-left: 20px;
+            font-size: 15px;
+        }
+
+        .fullname-subtitle {
+            color: #737373;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-page">
+            <div class="content-left-page">
+                <div class="container-profil">
+                    <div class="profil">
+                        <img src="https://static.vecteezy.com/ti/vecteur-libre/t2/495460-ligne-de-profil-icone-noire-gratuit-vectoriel.jpg"
+                            alt="">
+                    </div>
+                </div>
+                <div class="container-left-page-info">
+                    <div class="container-user-info-left-page">
+                        <div>
+                            <h3>COORDONNÉES</h3>
+                            <hr>
+                        </div>
+                        <div class="phone">
+                            0707898900
+                        </div>
+                        <div class="mail">
+                            exemple@contact.com
+                        </div>  <div class="skill-part">
+                            <h5>BASES DE DONNÉES</h5>
+                            <ul>
+                                <li><small>Conception et gestion de bases de données relationnelles SQL (MySQL)</small></li>
+                                <li><small>Manipulation de données Excel</small></li>
+                            </ul>
+                        </div>
+                        <div class="address">
+                            Ouagadougou, BF
+                        </div>
+                    </div>
+
+                    <div class="container-education-left-page">
+                        <div>
+                            <h3>FORMATIONS</h3>
+                            <hr>
+                        </div>
+                        <div class="education-part education-part-inner">
+                            <small class="child-education-part">(2014 - 2017)</small>
+                            <h5 class="child-education-part">Licence en Economie</h5>
+                            <small class="child-education-part">Université Thomas Sankara</small>
+                            <h6 class="child-education-part">Ouagadougou, Burkina Faso</h6>
+                        </div>
+                        <div class="education-part education-part-inner">
+                            <small class="child-education-part">(2014 - 2017)</small>
+                            <h5 class="child-education-part">Master en Economie de l'environement et du Développement
+                                Durable</h5>
+                            <small class="child-education-part">Université Thomas Sankara</small>
+                            <h6 class="child-education-part">Ouagadougou, Burkina Faso</h6>
+                        </div>
+                        <div class="education-part education-part-inner">
+                            <small class="child-education-part">(2014 - 2017)</small>
+                            <h5 class="child-education-part">Doctorat en Economie de l'environement et du Développement
+                                Durable</h5>
+                            <small class="child-education-part">Université Thomas Sankara</small>
+                            <h6 class="child-education-part">Ouagadougou, Burkina Faso</h6>
+                        </div>
+                        <div class="education-part education-part-inner">
+                            <small class="child-education-part">(2014 - 2017)</small>
+                            <h5 class="child-education-part">Licence en Economie</h5>
+                            <small class="child-education-part">Université Thomas Sankara</small>
+                            <h6 class="child-education-part">Ouagadougou, Burkina Faso</h6>
+                        </div>
+                        <div class="education-part education-part-inner">
+                            <small class="child-education-part">(2014 - 2017)</small>
+                            <h5 class="child-education-part">Master en Economie de l'environement et du Développement
+                                Durable</h5>
+                            <small class="child-education-part">Université Thomas Sankara</small>
+                            <h6 class="child-education-part">Ouagadougou, Burkina Faso</h6>
+                        </div>
+                    </div>
+                    <div class="container-lang-left-page">
+                        <div>
+                            <h3>LANGUES</h3>
+                            <hr>
+                        </div>
+                        <div class="lang-part">
+                            <p>Français - <small>(langue maternelle)</small></p>
+                            <p>Anglais - <small>(Intermédiaire)</small></p>
+                            <p>Allemand - <small>(Débutant)</small></p>
+                        </div>
+                    </div>
+                    <div class="container-lang-left-page">
+                        <div>
+                            <h3>CENTRES D'INTERÊTS</h3>
+                            <hr>
+                        </div>
+                        <div class="lang-part">
+                            Sport, Lecture, Cuisine
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="right-page">
+            <div class="content-right-page">
+                <div class="fullname">
+                    <h3>Nom et Prénom</h3>
+                    <small class="fullname-subtitle">(En recherche de stage de fin d'étude)</small>
+                    <hr>
+                </div>
+                <div class="presentation">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Suscipit at illum repudiandae corrupti, voluptates cumque totam iusto atque sit.
+                    Quae doloremque facere libero a magni quo perspiciatis minus modi voluptates.
+                </div>
+                <div class="experience">
+                    <div class="experience-title">
+                        <h3>EXPÉRIENCES</h3>
+                        <hr>
+                    </div>
+                    <div class="experience-part">
+                        <div class="content-experience-part-title">
+                            <div class="small"><small>(Apr - Jun) <br> 2020 - 2021</small></div>
+                            <div class="experience-part-title">
+                                <h5>CDD AFRICOM LTD</h5>
+                            </div>
+                        </div>
+                        <small>
+                            Employé chez Africom Ltd en qualité de développeur logiciel
+                            dans le cadre d'un Contrat à Durée Déterminée.
+                            développement et maintenance d'applications web
+                            gestion de bases de données
+                        </small>
+                    </div>
+                    <div class="experience-part">
+                        <div class="content-experience-part-title">
+                            <div class="small"><small>(Jan - Mar) <br> 2018 - 2019</small></div>
+                            <div class="experience-part-title">
+                                <h5>STAGE TELCO LTD NIGERIA</h5>
+                            </div>
+                        </div>
+                        <small>
+                            Employé chez Telco Ltd Nigeria en qualité de prestataire
+                            pour le compte de Orange Nigeria.
+                            analyse de la qualité de service
+                            optimisation des réseaux mobiles
+                        </small>
+                    </div>
+                    <div class="experience-part">
+                        <div class="content-experience-part-title">
+                            <div class="small"><small>(Sep - Nov) <br> 2014 - 2017</small></div>
+                            <div class="experience-part-title">
+                                <h5>STAGE ORANGE SA BURKINA FASO</h5>
+                            </div>
+                        </div>
+                        <small>
+                            Employé chez Consult Services Synergie en qualité de prestataire
+                            pour le compte de Orange Burkina.
+                            constitution de nouvelle base de données
+                            numération des abonnés
+                        </small>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-title">
+                        <h3>COMPÉTENCES</h3>
+                        <hr>
+                    </div>
+                    <div class="skill-part">
+                        <h5>LANGAGES DE PROGRAMMATION & AUTRES</h5>
+                        <ul>
+                            <li><small>Python (NumPy, Pandas, Scikit-Learn)</small></li>
+                            <li><small>R (tidyverse) & Gams</small></li>
+                            <li><small>Excel</small></li>
+                        </ul>
+                    </div>
+                    <div class="skill-part">
+                        <h5>ANALYSE DE DONNÉES</h5>
+                        <ul>
+                            <li><small>Data Cleaning et Transformation (Pandas)</small></li>
+                            <li><small>Machine Learning</small></li>
+                            <li><small>Data Visualization (Matplotlib, Seaborn)</small></li>
+                            <li><small>Modélisation statistique avancée</small></li>
+                        </ul>
+                    </div>
+                    <div class="skill-part">
+                        <h5>BASES DE DONNÉES</h5>
+                        <ul>
+                            <li><small>Conception et gestion de bases de données relationnelles SQL (MySQL)</small></li>
+                            <li><small>Manipulation de données Excel</small></li>
+                        </ul>
+                    </div>
+                    <div class="skill-part">
+                        <h5>OUTILS ET TECHNOLOGIES</h5>
+                        <ul>
+                            <li><small>Git (GitHub) - Contrôle de version</small></li>
+                            <li><small>Jupyter Notebooks</small></li>
+                            <li><small>Visual Studio Code (VScode)</small></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

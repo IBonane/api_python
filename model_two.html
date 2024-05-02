@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        /*body {
+            padding: 0;
+            margin: 0;
+            background: #eee;
+        }
+
+        @page {
+            size: 210mm 297mm;
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            width: 100%;
+            height: ;
+        } */
+
+        .container {
+            width: 21cm;
+            max-height: 29.7cm;
+            padding: 10px;
+            margin: 0;
+            background: white;
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        @media print {
+            .container {
+                margin: 0;
+                width: initial;
+                max-height: initial;
+                background: initial;
+                page-break-after: avoid;
+            }
+        }
+        .profil_top, .profil_bottom{
+            width: 100%;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .profil_image_container{
+            width: 50%;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .profil_image {
+            width: 120px;
+            height: 120px;
+        }
+
+        .profil_image img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+
+        .fullname_address{
+            padding-top: 30px;
+            width: 100%;
+
+        }
+
+        .fullname, .address{
+           text-align: center;      
+        }
+        .address{
+           padding-top: 10px;
+        }
+        .contact{
+            width: 100%;
+            padding-top: 35px;
+            padding-left: 20px;
+        }
+
+        /* start profil left */
+
+        .profil_left{
+            width: 50%;
+            padding: 25px;
+            padding-top: 5px;
+        }
+
+        .presentation h4, .presentation hr {
+            margin-bottom: 5px;
+        }
+
+        .presentation p{
+            text-align: justify;
+            font-size: 13px;
+        }
+
+        .skill{
+            margin-top: 15px;
+        }
+
+        .skill h4{
+            margin-bottom: 5px;
+        }
+
+        .skill hr{
+            margin-bottom: 10px;
+        }
+
+        .skill ul{
+            text-align: justify;
+            font-size: 14px;
+            padding: 10px;
+        }
+
+        .skill-part ul {
+            padding-top: 5px;
+            padding-left: 20px;
+            font-size: 14px;
+        }
+        /* end profil left */
+        
+        
+        /* end profil right */ 
+        
+        .profil_right{
+            width: 50%;
+            padding: 25px;
+            padding-top: 5px;
+        }
+
+        .experience h4{
+            margin-bottom: 5px;
+        }
+
+        .experience hr{
+            margin-bottom: 10px;
+        }
+
+        .experience-part small, .experience-part p{
+            padding-bottom: 7px;
+            font-size: 12px;
+        }
+        .experience-description{
+            font-size: 13px;
+        }
+
+
+
+        .education{
+            margin-top: 15px;
+        }
+        .education h4{
+            margin-bottom: 5px;
+        }
+
+        .education hr{
+            margin-bottom: 10px;
+        }
+
+        .education-part small, .education-part p{
+            padding-bottom: 7px;
+            font-size: 12px;
+        }
+        .education-description{
+            font-size: 13px;
+        }
+
+        .education-part {
+            padding-top: 7px;
+        }
+
+        .education-part .child-education-part {
+            padding-top: 5px;
+        }
+
+        .education-part-inner {
+            margin-bottom: 13px;
+        }
+
+        .lang{
+            margin-top: 15px;
+        }
+        .lang h4{
+            margin-bottom: 5px;
+        }
+
+        .lang hr{
+            margin-bottom: 10px;
+        }
+
+        .lang-part {
+            padding-top: 7px;
+        }
+
+        .lang-part p {
+            padding-top: 5px;
+            font-size: 14px;
+        }
+
+
+        .focusInterest{
+            margin-top: 15px;
+        }
+        .focusInterest h4{
+            margin-bottom: 5px;
+        }
+
+        .focusInterest hr{
+            margin-bottom: 10px;
+        }
+
+        .focusInterest p {
+            font-size: 14px;
+        }
+        /* end profil right */
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="profil_top">
+            <div class="profil_image_container">
+                <div class="profil_image">
+                    <img src="data:image/jpeg;base64,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" alt="">
+                </div>
+            </div>
+
+            <div class="fullname_address">
+                <div class="fullname">
+                    <h2>Patrick Fournier</h2>
+                </div>
+                <div class="address">
+                    <p>9 rue Desaix, 75010 Paris</p>
+                </div>
+            </div>
+
+            <div class="contact">
+                <p><small>01 23 45 67 89</small></p>
+                <p><small>bonjour@canvasupersite.fr</small></p>
+                <p><small>@linkedin</small></p>
+            </div>
+        </div>
+        
+        <div class="profil_bottom">
+
+            <div class="profil_left">
+                <div class="presentation">
+                    <h4 style="color: #5F7BCD;">À MON SUJET</h4>
+                    <hr style="color: #5F7BCD;">
+                    <p>
+                        Je suis un directeur commercial efficace et confiant ayant une expérience avérée en matière de logistique et
+                        dans le secteur de la chaîne d'approvisionnement. Mon expérience m'a aidé à développer une expertise du processus
+                        de vente et de la chaîne d'approvisionnement. Je suis très motivé pour continuer à apprendre et à améliorer 
+                        mon savoir-faire.
+                    </p>
+                </div>
+                <div class="skill">
+                    <h4 style="color: #5F7BCD;">COMPÉTENCES ET SAVOIR-FAIRE</h4>
+                    <hr style="color: #5F7BCD;">
+                    <div class="skill-part">
+                        <h5>LANGAGES DE PROGRAMMATION & AUTRES</h5>
+                        <ul>
+                            <li><small>Python (NumPy, Pandas, Scikit-Learn)</small></li>
+                            <li><small>R (tidyverse) & Gams</small></li>
+                            <li><small>Excel</small></li>
+                        </ul>
+                    </div>
+                    <div class="skill-part">
+                        <h5>ANALYSE DE DONNÉES</h5>
+                        <ul>
+                            <li><small>Data Cleaning et Transformation (Pandas)</small></li>
+                            <li><small>Machine Learning</small></li>
+                            <li><small>Data Visualization (Matplotlib, Seaborn)</small></li>
+                            <li><small>Modélisation statistique avancée</small></li>
+                        </ul>
+                    </div>
+                    <div class="skill-part">
+                        <h5>BASES DE DONNÉES</h5>
+                        <ul>
+                            <li><small>Conception et gestion de bases de données relationnelles SQL (MySQL)</small></li>
+                            <li><small>Manipulation de données Excel</small></li>
+                        </ul>
+                    </div>
+                    <div class="skill-part">
+                        <h5>OUTILS ET TECHNOLOGIES</h5>
+                        <ul>
+                            <li><small>Git (GitHub) - Contrôle de version</small></li>
+                            <li><small>Jupyter Notebooks</small></li>
+                            <li><small>Visual Studio Code (VScode)</small></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="lang">
+                    <div class="lang-part">
+                        <h4 style="color: #5F7BCD;">LANGUE PARLÉE</h4>
+                        <hr style="color: #5F7BCD;">
+
+                        <p>Français - <small>(langue maternelle)</small></p>
+                        <p>Anglais - <small>(Intermédiaire)</small></p>
+                        <p>Allemand - <small>(Débutant)</small></p>
+                    </div>
+                </div>
+                <div class="focusInterest">
+                    <h4 style="color: #5F7BCD;">CENTRES D'INTERÊTS</h4>
+                    <hr style="color: #5F7BCD;">
+
+                    <div class="focusInterest">
+                        <p>Sport, Lecture, Cuisine</p>
+                    </div>
+                </div>
+            </div>
+            <div class="profil_right">
+                <div class="experience">
+                    <h4 style="color: #5F7BCD;">EXPÉRIENCE PROFESSIONNELLE</h4>
+                    <hr style="color: #5F7BCD;">
+                
+                    <div class="experience-part">
+                        <p ><strong>STAGE ORANGE SA BURKINA FASO</strong></p>
+                        <p>février 2019 - Septembre 2019</p>
+                        <p class="experience-description">
+                            Employé chez Africom Ltd en qualité de développeur logiciel
+                            dans le cadre d'un Contrat à Durée Déterminée.
+                            développement et maintenance d'applications web
+                            gestion de bases de données
+                        </p>
+                    </div>
+
+                    <div class="experience-part">
+                        <p ><strong>STAGE ORANGE SA BURKINA FASO</strong></p>
+                        <p>février 2019 - Septembre 2019</p>
+                        <p class="experience-description">
+                            Employé chez Africom Ltd en qualité de développeur logiciel
+                            dans le cadre d'un Contrat à Durée Déterminée.
+                            développement et maintenance d'applications web
+                            gestion de bases de données
+                        </p>
+                    </div>
+
+                    <div class="experience-part">
+                        <p ><strong>STAGE ORANGE SA BURKINA FASO</strong></p>
+                        <p>février 2019 - Septembre 2019</p>
+                        <p class="experience-description">
+                            Employé chez Africom Ltd en qualité de développeur logiciel
+                            dans le cadre d'un Contrat à Durée Déterminée.
+                            développement et maintenance d'applications web
+                            gestion de bases de données
+                        </p>
+                    </div>
+                </div>
+                <div class="education">
+                    <h4 style="color: #5F7BCD;">FORMATION</h4>
+                    <hr style="color: #5F7BCD;">
+                    <div class="education-part education-part-inner">
+                        <small class="child-education-part">(2014 - 2017)</small>
+                        <h5 class="child-education-part">Licence en Economie</h5>
+                        <small class="child-education-part">Université Thomas Sankara</small>
+                        <h6 class="child-education-part">Ouagadougou, Burkina Faso</h6>
+                    </div>
+                    <div class="education-part education-part-inner">
+                        <small class="child-education-part">(2014 - 2017)</small>
+                        <h5 class="child-education-part">Master en Economie de l'environement et du Développement
+                            Durable</h5>
+                        <small class="child-education-part">Université Thomas Sankara</small>
+                        <h6 class="child-education-part">Ouagadougou, Burkina Faso</h6>
+                    </div>
+                    <div class="education-part education-part-inner">
+                        <small class="child-education-part">(2014 - 2017)</small>
+                        <h5 class="child-education-part">Doctorat en Economie de l'environement et du Développement
+                            Durable</h5>
+                        <small class="child-education-part">Université Thomas Sankara</small>
+                        <h6 class="child-education-part">Ouagadougou, Burkina Faso</h6>
+                    </div>
+                    <div class="education-part education-part-inner">
+                        <small class="child-education-part">(2014 - 2017)</small>
+                        <h5 class="child-education-part">Licence en Economie</h5>
+                        <small class="child-education-part">Université Thomas Sankara</small>
+                        <h6 class="child-education-part">Ouagadougou, Burkina Faso</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
